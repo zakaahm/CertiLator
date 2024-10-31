@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bibliotheek van Adressen</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <h1>Bibliotheek van Adressen</h1>
+    <form id="addressForm">
+      <label for="address">Adres:</label>
+      <input type="text" id="address" required>
+
+      <label for="offer">Offerte (€):</label>
+      <input type="number" id="offer" min="0" step="0.01" required>
+
+      <button type="button" onclick="addAddress()">Voeg Adres Toe</button>
+    </form>
+
+    <h2>Toegevoegde Adressen</h2>
+    <ul id="addressList"></ul>
+
+    <div class="link">
+      <a href="index.html">Terug naar Winstcalculator</a>
+    </div>
+  </div>
+
+  <script src="library.js"></script>
+</body>
+</html>
