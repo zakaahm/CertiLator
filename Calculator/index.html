@@ -3,33 +3,101 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Winstcalculator</title>
+  <meta name="theme-color" content="#2563eb">
+  <title>Certilator | Professionele Calculator</title>
   <link rel="stylesheet" href="styles.css">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div class="container">
-    <h1>Winstcalculator</h1>
-    <form id="profitForm">
-      <label for="sampleCount">Aantal Stalen:</label>
-      <input type="number" id="sampleCount" value="1" min="1">
+  <!-- Navigation Header -->
+  <header class="nav-container">
+    <nav class="nav-links">
+      <a href="index.html" class="nav-logo">Certilator</a>
+      <div class="nav-items">
+        <a href="settings.html">Instellingen</a>
+        <button onclick="logout()" class="logout-btn">Uitloggen</button>
+      </div>
+    </nav>
+  </header>
 
-      <label for="price">Prijs voor Constructie (€):</label>
-      <input type="number" id="price" value="0" step="0.01">
+  <main>
+    <div class="container">
+      <!-- Calculator Section -->
+      <section class="calculator-section">
+        <h1>Winstcalculator</h1>
+        
+        <form id="profitForm" class="profit-form">
+          <div class="form-group">
+            <label for="sampleCount">Aantal Stalen</label>
+            <div class="input-wrapper">
+              <input 
+                type="number" 
+                id="sampleCount" 
+                value="1" 
+                min="1"
+                aria-describedby="sampleHelp">
+              <small id="sampleHelp" class="helper-text">Minimaal 1 staal vereist</small>
+            </div>
+          </div>
 
-      <button type="button" onclick="calculateProfit()">Bereken Winst</button>
-    </form>
+          <div class="form-group">
+            <label for="price">Prijs voor Constructie (€)</label>
+            <div class="input-wrapper">
+              <input 
+                type="number" 
+                id="price" 
+                value="0" 
+                step="0.01"
+                aria-describedby="priceHelp">
+              <small id="priceHelp" class="helper-text">Voer het totaalbedrag in</small>
+            </div>
+          </div>
 
-    <div id="profitOutput"></div>
-    
-    <h2>Formule</h2>
-    <p id="formulaDisplay"></p>
+          <button 
+            type="button" 
+            onclick="calculateProfit()" 
+            class="calculate-btn">
+            Bereken Winst
+            <span class="btn-icon">→</span>
+          </button>
+        </form>
+      </section>
 
-    <div class="link">
-      <a href="settings.html">Instellingen Vaste Kosten</a>
+      <!-- Results Section -->
+      <section class="results-section">
+        <div id="profitOutput" class="profit-output">
+          <!-- Resultaten worden hier dynamisch ingevuld -->
+        </div>
+        
+        <div class="formula-container">
+          <h2>Berekeningsformule</h2>
+          <p id="formulaDisplay" class="formula"></p>
+        </div>
+      </section>
+
+      <!-- Quick Links -->
+      <section class="quick-links">
+        <h2>Snelle Links</h2>
+        <div class="links-grid">
+          <a href="settings.html" class="quick-link">
+            <span class="link-icon">⚙️</span>
+            <span class="link-text">Instellingen Vaste Kosten</span>
+          </a>
+          <!-- Voeg hier eventueel meer quick links toe -->
+        </div>
+      </section>
     </div>
-  </div>
+  </main>
 
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-content">
+      <p>&copy; 2024 Winstcalculator. Alle rechten voorbehouden.</p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
   <script src="script.js"></script>
+  <script src="auth.js"></script>
 </body>
 </html>
