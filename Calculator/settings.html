@@ -3,31 +3,103 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Instellingen Vaste Kosten</title>
+  <meta name="theme-color" content="#2563eb">
+  <title>Instellingen | Winstcalculator</title>
   <link rel="stylesheet" href="styles.css">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div class="container">
-    <h1>Instellingen Vaste Kosten</h1>
-    <form id="settingsForm">
-      <label for="ovamFee">Retributie OVAM (€):</label>
-      <input type="number" id="ovamFee" value="50" step="0.01">
+  <!-- Navigation Header -->
+  <header class="nav-container">
+    <nav class="nav-links">
+      <a href="index.html" class="nav-logo">Certilator</a>
+      <div class="nav-items">
+        <a href="index.html">Winst berkenen</a>
+      </div>
+    </nav>
+  </header>
 
-      <label for="certificationFee">Certificatie Instelling (€):</label>
-      <input type="number" id="certificationFee" value="25" step="0.01">
+  <main>
+    <div class="container settings-container">
+      <header class="page-header">
+        <h1>
+          <span class="header-icon">⚙️</span>
+          Instellingen Vaste Kosten
+        </h1>
+        <p class="header-description">Beheer hier de standaard kosten voor berekeningen (excl btw)</p>
+      </header>
 
-      <label for="sampleCost">Kosten per Staal (€):</label>
-      <input type="number" id="sampleCost" value="16" step="0.01">
+      <section class="settings-section">
+        <form id="settingsForm" class="settings-form">
+          <div class="form-group">
+            <label for="ovamFee">
+              Retributie OVAM (€)
+            </label>
+            <div class="input-wrapper">
+              <span class="input-prefix">€</span>
+              <input 
+                type="number" 
+                id="ovamFee" 
+                value="50" 
+                step="0.01"
+                class="currency-input"
+                aria-describedby="ovamHelp">
+              <small id="ovamHelp" class="helper-text">Standaard Retributiekost: €50,00</small>
+            </div>
+          </div>
 
-      <button type="button" onclick="saveSettings()">Opslaan</button>
-    </form>
+          <div class="form-group">
+            <label for="certificationFee">
+              Certificatie Instelling (€)
+            </label>
+            <div class="input-wrapper">
+              <span class="input-prefix">€</span>
+              <input 
+                type="number" 
+                id="certificationFee" 
+                value="25" 
+                step="0.01"
+                class="currency-input"
+                aria-describedby="certHelp">
+              <small id="certHelp" class="helper-text">Standaard Retributiekost certificatie instelling</small>
+            </div>
+          </div>
 
-    <div class="link">
-      <a href="index.html">Terug naar Winstcalculator</a>
+          <div class="form-group">
+            <label for="sampleCost">
+              Staal (€)
+            </label>
+            <div class="input-wrapper">
+              <span class="input-prefix">€</span>
+              <input 
+                type="number" 
+                id="sampleCost" 
+                value="16" 
+                step="0.01"
+                class="currency-input"
+                aria-describedby="sampleHelp">
+              <small id="sampleHelp" class="helper-text">Prijs dat labo aanrekent per staalname</small>
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <button type="button" onclick="saveSettings()" class="primary-btn">
+              <span class="btn-icon">💾</span>
+              Instellingen Opslaan
+            </button>
+          </div>
+        </form>
+      </section>
+
     </div>
+  </main>
+
+  <!-- Success Notification -->
+  <div class="notification" id="saveNotification">
+    Instellingen succesvol opgeslagen
   </div>
 
   <script src="settings.js"></script>
+  <script src="auth.js"></script>
 </body>
 </html>
